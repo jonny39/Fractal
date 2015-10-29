@@ -1,6 +1,7 @@
 package edu.byu.fractal;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ public class FractalViewerFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fractal_viewer, container, false);
-        Button colorChooserButton = (Button) v.findViewById(R.id.color_chooser_button);
+        FloatingActionButton colorChooserButton = (FloatingActionButton) v.findViewById(R.id.color_chooser_button);
         colorChooserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
