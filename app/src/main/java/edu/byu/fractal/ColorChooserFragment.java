@@ -8,6 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.larswerkman.holocolorpicker.ColorPicker;
+import com.larswerkman.holocolorpicker.OpacityBar;
+import com.larswerkman.holocolorpicker.SVBar;
+import com.larswerkman.holocolorpicker.SaturationBar;
+import com.larswerkman.holocolorpicker.ValueBar;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,6 +71,20 @@ public class ColorChooserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_color_chooser, container, false);
+    }
+
+    public void setupPicker(View v)
+    {
+        ColorPicker picker = (ColorPicker) v.findViewById(R.id.picker);
+        SVBar svBar = (SVBar) v.findViewById(R.id.svbar);
+        OpacityBar opacityBar = (OpacityBar) v.findViewById(R.id.opacitybar);
+        SaturationBar saturationBar = (SaturationBar) v.findViewById(R.id.saturationbar);
+        ValueBar valueBar = (ValueBar) v.findViewById(R.id.valuebar);
+
+        picker.addSVBar(svBar);
+        picker.addOpacityBar(opacityBar);
+        picker.addSaturationBar(saturationBar);
+        picker.addValueBar(valueBar);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
