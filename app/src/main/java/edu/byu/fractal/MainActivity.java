@@ -2,6 +2,7 @@ package edu.byu.fractal;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements ColorChooserFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         showFragment(new FractalViewerFragment());
     }
 

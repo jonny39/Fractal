@@ -34,6 +34,7 @@ public class ColorChooserFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private ColorPicker mPicker;
 
     /**
      * Use this factory method to create a new instance of
@@ -69,22 +70,26 @@ public class ColorChooserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view =  inflater.inflate(R.layout.fragment_color_chooser, container, false);
+        setupPicker(view);
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_color_chooser, container, false);
+        return view;
     }
 
     public void setupPicker(View v)
     {
-        ColorPicker picker = (ColorPicker) v.findViewById(R.id.picker);
+        mPicker = (ColorPicker) v.findViewById(R.id.picker);
         SVBar svBar = (SVBar) v.findViewById(R.id.svbar);
         OpacityBar opacityBar = (OpacityBar) v.findViewById(R.id.opacitybar);
         SaturationBar saturationBar = (SaturationBar) v.findViewById(R.id.saturationbar);
         ValueBar valueBar = (ValueBar) v.findViewById(R.id.valuebar);
 
-        picker.addSVBar(svBar);
-        picker.addOpacityBar(opacityBar);
-        picker.addSaturationBar(saturationBar);
-        picker.addValueBar(valueBar);
+        mPicker.addSVBar(svBar);
+        mPicker.addOpacityBar(opacityBar);
+        mPicker.addSaturationBar(saturationBar);
+        mPicker.addValueBar(valueBar);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
