@@ -1,11 +1,14 @@
 package edu.byu.fractal;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,6 +29,13 @@ public class FractalViewerFragment extends android.app.Fragment {
                 ((MainActivity) getActivity()).showFragment(new ColorChooserFragment());
             }
         });
+        SharedPreferences pref = getActivity().getSharedPreferences(ColorChooserFragment.PACKAGE_NAME, Context.MODE_PRIVATE);
+        int color = pref.getInt(ColorChooserFragment.COLOR_1,-1);
+        if(color != -1)
+        {
+            Toast.makeText(getActivity(),"You choose the color " + color + "!", Toast.LENGTH_SHORT).show();
+        }
+
         return v;
     }
 }

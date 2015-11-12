@@ -1,12 +1,15 @@
 package edu.byu.fractal;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.OpacityBar;
@@ -28,6 +31,8 @@ public class ColorChooserFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static final String COLOR_1 = "color1";
+    public static final String PACKAGE_NAME = "com.byu.fractal";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -73,6 +78,15 @@ public class ColorChooserFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_color_chooser, container, false);
         setupPicker(view);
 
+        Button chooseColor = (Button) view.findViewById(R.id.choose_button);
+        chooseColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences pref = getActivity().getSharedPreferences(PACKAGE_NAME, Context.MODE_PRIVATE);
+                pref.edit().putInt(COLOR_1,mPicker.getColor()).apply();
+                ((MainActivity) getActivity()).showFragment(new FractalViewerFragment());
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
