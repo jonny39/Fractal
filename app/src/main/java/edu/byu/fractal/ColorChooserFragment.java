@@ -95,13 +95,9 @@ public class ColorChooserFragment extends Fragment {
     public void setupPicker(View v)
     {
         mPicker = (ColorPicker) v.findViewById(R.id.picker);
-        SVBar svBar = (SVBar) v.findViewById(R.id.svbar);
-        OpacityBar opacityBar = (OpacityBar) v.findViewById(R.id.opacitybar);
         SaturationBar saturationBar = (SaturationBar) v.findViewById(R.id.saturationbar);
         ValueBar valueBar = (ValueBar) v.findViewById(R.id.valuebar);
 
-        mPicker.addSVBar(svBar);
-        mPicker.addOpacityBar(opacityBar);
         mPicker.addSaturationBar(saturationBar);
         mPicker.addValueBar(valueBar);
     }
