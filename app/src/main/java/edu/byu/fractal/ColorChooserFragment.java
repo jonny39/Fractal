@@ -16,6 +16,7 @@ import com.larswerkman.holocolorpicker.OpacityBar;
 import com.larswerkman.holocolorpicker.SVBar;
 import com.larswerkman.holocolorpicker.SaturationBar;
 import com.larswerkman.holocolorpicker.ValueBar;
+import com.pixplicity.easyprefs.library.Prefs;
 
 
 /**
@@ -81,9 +82,8 @@ public class ColorChooserFragment extends Fragment {
         Button chooseColor = (Button) view.findViewById(R.id.choose_button);
         chooseColor.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                SharedPreferences pref = getActivity().getSharedPreferences(PACKAGE_NAME, Context.MODE_PRIVATE);
-                pref.edit().putInt(COLOR_1,mPicker.getColor()).apply();
+            public void onClick(View v){
+                Prefs.putInt(COLOR_1,mPicker.getColor());
                 ((MainActivity) getActivity()).showFragment(new FractalViewerFragment());
             }
         });

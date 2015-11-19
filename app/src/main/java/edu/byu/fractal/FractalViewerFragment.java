@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.pixplicity.easyprefs.library.Prefs;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -29,12 +31,15 @@ public class FractalViewerFragment extends android.app.Fragment {
                 ((MainActivity) getActivity()).showFragment(new ColorChooserFragment());
             }
         });
-        SharedPreferences pref = getActivity().getSharedPreferences(ColorChooserFragment.PACKAGE_NAME, Context.MODE_PRIVATE);
-        int color = pref.getInt(ColorChooserFragment.COLOR_1,-1);
+        int color = Prefs.getInt(ColorChooserFragment.COLOR_1, -1);
         if(color != -1)
         {
             Toast.makeText(getActivity(),"You choose the color " + color + "!", Toast.LENGTH_SHORT).show();
         }
+
+        DrawTriangle triangle = new DrawTriangle(getActivity());
+        ViewGroup viewGroup = (ViewGroup) v.findViewById(R.id.fractal_view_group);
+        viewGroup.addView(triangle);
 
         return v;
     }
