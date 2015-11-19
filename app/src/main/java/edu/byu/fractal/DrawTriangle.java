@@ -27,9 +27,9 @@ public class DrawTriangle extends View {
     public DrawTriangle(Context context) {
         super(context);
         this.mContext = context;
-        point1_draw = new Point(getCenterX(),getCenterY());
-        point2_draw = new Point(getCenterX()+200,getCenterY()+100);
-        point3_draw = new Point(getCenterX()+200,getCenterY()-100);
+        point1_draw = new Point(getCenterX(),getCenterY()-150);
+        point2_draw = new Point(getCenterX()-200,getCenterY()+100);
+        point3_draw = new Point(getCenterX()+200,getCenterY()+100);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class DrawTriangle extends View {
     }
 
     private void drawTriangle(Canvas canvas) {
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.WHITE);
         canvas.drawPaint(paint);
 
         paint.setStrokeWidth(2);
