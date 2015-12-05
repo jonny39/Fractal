@@ -14,7 +14,7 @@ import com.pixplicity.easyprefs.library.Prefs;
 import static java.lang.Math.*;
 
 /**
- * Created by Jessica Erickson on 11/18/2015.
+ * Created by Jonathan Erickson on 11/18/2015.
  */
 public class DrawTriangle extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -56,7 +56,6 @@ public class DrawTriangle extends View {
         path.close();
 
         canvas.drawPath(path, paint);
-
     }
 
     private int getCenterX() {
