@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class FractalViewerFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fractal_viewer, container, false);
-        FloatingActionButton colorChooserButton = (FloatingActionButton) v.findViewById(R.id.color_chooser_button);
+        Button colorChooserButton = (Button) v.findViewById(R.id.color_chooser_button);
         colorChooserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +47,7 @@ public class FractalViewerFragment extends android.app.Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (layers < 5) {
+                if (layers < 7) {
                     drawLayer();
                 }
             }
@@ -70,7 +71,7 @@ public class FractalViewerFragment extends android.app.Fragment {
 
     private void drawLayer()
     {
-        Toast.makeText(getActivity(), String.valueOf(layers+1), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Layer " + String.valueOf(layers+1), Toast.LENGTH_SHORT).show();
 
         if (layers == 0) {
             Point firstBase = new Point(getCenterX(),getCenterY());

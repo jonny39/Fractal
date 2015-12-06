@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_above="@+id/choose_button"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <com.larswerkman.holocolorpicker.ColorPicker
@@ -16,21 +16,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/picker1"
         android:layout_alignLeft="@+id/picker1"
-        android:layout_alignStart="@+id/picker1"
-        android:layout_above="@+id/picker1"
-        android:layout_alignRight="@+id/picker1"
-        android:layout_alignEnd="@+id/picker1" />
+        android:layout_alignStart="@+id/picker1" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/choose_button"
-    android:text="Draw Fractal!"
+        android:text="Draw Fractal!"
         android:layout_gravity="center"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color 1"
+        android:layout_marginTop="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color 2"
+        android:layout_marginTop="56dp"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/picker2"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
