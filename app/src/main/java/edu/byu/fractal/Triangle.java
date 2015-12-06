@@ -27,6 +27,7 @@ public class Triangle extends View {
     private Context mContext;
     private double northAngle;
     private double sideLength;
+    int color;
 
     public Triangle(Context context, Point basePoint, double northAngle, double sideLength) {
         super(context);
@@ -66,7 +67,6 @@ public class Triangle extends View {
     private void drawTriangle(Canvas canvas) {
 
         paint.setStrokeWidth(2);
-        int color = Prefs.getInt(ColorChooserFragment.COLOR_1, -1);
         paint.setColor(color);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         paint.setAntiAlias(true);

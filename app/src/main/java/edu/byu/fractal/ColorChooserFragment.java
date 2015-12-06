@@ -1,8 +1,6 @@
 package edu.byu.fractal;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -12,10 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
-import com.larswerkman.holocolorpicker.OpacityBar;
-import com.larswerkman.holocolorpicker.SVBar;
-import com.larswerkman.holocolorpicker.SaturationBar;
-import com.larswerkman.holocolorpicker.ValueBar;
 import com.pixplicity.easyprefs.library.Prefs;
 
 
@@ -34,13 +28,15 @@ public class ColorChooserFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     public static final String COLOR_1 = "color1";
     public static final String PACKAGE_NAME = "com.byu.fractal";
+    public static final String COLOR_2 = "color2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private ColorPicker mPicker;
+    private ColorPicker mPicker1;
+    private ColorPicker mPicker2;
 
     /**
      * Use this factory method to create a new instance of
@@ -83,7 +79,8 @@ public class ColorChooserFragment extends Fragment {
         chooseColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Prefs.putInt(COLOR_1,mPicker.getColor());
+                Prefs.putInt(COLOR_1, mPicker1.getColor());
+                Prefs.putInt(COLOR_2, mPicker2.getColor());
                 ((MainActivity) getActivity()).showFragment(new FractalViewerFragment());
             }
         });
@@ -94,12 +91,8 @@ public class ColorChooserFragment extends Fragment {
 
     public void setupPicker(View v)
     {
-        mPicker = (ColorPicker) v.findViewById(R.id.picker);
-        SaturationBar saturationBar = (SaturationBar) v.findViewById(R.id.saturationbar);
-        ValueBar valueBar = (ValueBar) v.findViewById(R.id.valuebar);
-
-        mPicker.addSaturationBar(saturationBar);
-        mPicker.addValueBar(valueBar);
+        mPicker1 = (ColorPicker) v.findViewById(R.id.picker1);
+        mPicker2 = (ColorPicker) v.findViewById(R.id.picker2);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

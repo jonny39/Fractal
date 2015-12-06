@@ -46,7 +46,9 @@ public class FractalViewerFragment extends android.app.Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drawLayer();
+                if (layers < 5) {
+                    drawLayer();
+                }
             }
         });
 
@@ -68,11 +70,14 @@ public class FractalViewerFragment extends android.app.Fragment {
 
     private void drawLayer()
     {
+        Toast.makeText(getActivity(), String.valueOf(layers+1), Toast.LENGTH_SHORT).show();
+
         if (layers == 0) {
             Point firstBase = new Point(getCenterX(),getCenterY());
             int angle = 90;
             int sideLength1 = 450;
             Triangle triangle = new Triangle(getActivity(), firstBase, angle, sideLength1);
+            triangle.color = Prefs.getInt(ColorChooserFragment.COLOR_1,-1);
             TriangleStuff rightSide = new TriangleStuff(triangle.getRightMidpoint(),triangle.getRightAngle(),triangle.getSideLength()/2);
             TriangleStuff leftSide = new TriangleStuff(triangle.getLeftMidpoint(),triangle.getLeftAngle(),triangle.getSideLength()/2);
             TriangleStuff bottomSide = new TriangleStuff(triangle.getBasePoint(),triangle.getBaseAngle(),triangle.getSideLength()/2);
@@ -85,26 +90,37 @@ public class FractalViewerFragment extends android.app.Fragment {
         else if (layers == 1) {
             Triangle triangleRight = new Triangle(getActivity(),mFractalLayers.get(0).point,mFractalLayers.get(0).angle,mFractalLayers.get(0).length);
             draw(triangleRight);
+            triangleRight.color = Prefs.getInt(ColorChooserFragment.COLOR_2,-1);
             Triangle triangleLeft = new Triangle(getActivity(),mFractalLayers.get(1).point,mFractalLayers.get(1).angle,mFractalLayers.get(1).length);
             draw(triangleLeft);
+            triangleLeft.color = Prefs.getInt(ColorChooserFragment.COLOR_2,-1);
             Triangle triangleBottom = new Triangle(getActivity(),mFractalLayers.get(2).point,mFractalLayers.get(2).angle,mFractalLayers.get(2).length);
             draw(triangleBottom);
+            triangleBottom.color = Prefs.getInt(ColorChooserFragment.COLOR_2,-1);
             mFractalLayers.clear();
             addStuff(triangleRight);
             addStuff(triangleLeft);
             addStuff(triangleBottom);
             layers++;
         }
-        else if (layers < 5) {
+        else {
             List<TriangleStuff> currentLayer = new ArrayList<>();
             currentLayer.addAll(mFractalLayers);
             mFractalLayers.clear();
             for(TriangleStuff t:currentLayer) {
                 Triangle triangle = new Triangle(getActivity(), t.point, t.angle, t.length);
+                if(layers %2 == 0)
+                {
+                    triangle.color = Prefs.getInt(ColorChooserFragment.COLOR_1,-1);
+                }
+                else
+                {
+                    triangle.color = Prefs.getInt(ColorChooserFragment.COLOR_2,-1);
+                }
                 draw(triangle);
                 addStuff(triangle);
             }
-
+            layers++;
         }
 
     }
