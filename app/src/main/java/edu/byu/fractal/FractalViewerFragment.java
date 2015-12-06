@@ -47,7 +47,7 @@ public class FractalViewerFragment extends android.app.Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (layers < 7) {
+                if (layers < 8) {
                     drawLayer();
                 }
             }
@@ -127,8 +127,8 @@ public class FractalViewerFragment extends android.app.Fragment {
     }
 
     private void addStuff(Triangle triangle) {
-        TriangleStuff rightSide = new TriangleStuff(triangle.getRightMidpoint(),triangle.getRightAngle(),triangle.getSideLength()/3);
-        TriangleStuff leftSide = new TriangleStuff(triangle.getLeftMidpoint(),triangle.getLeftAngle(),triangle.getSideLength()/3);
+        TriangleStuff rightSide = new TriangleStuff(triangle.getRightMidpoint(),triangle.getRightAngle(),triangle.getSideLength()/2);
+        TriangleStuff leftSide = new TriangleStuff(triangle.getLeftMidpoint(),triangle.getLeftAngle(),triangle.getSideLength()/2);
         mFractalLayers.add(rightSide);
         mFractalLayers.add(leftSide);
     }
