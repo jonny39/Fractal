@@ -47,7 +47,7 @@ public class FractalViewerFragment extends android.app.Fragment {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (layers < 8) {
+                if (layers < 9) {
                     drawLayer();
                 }
             }
