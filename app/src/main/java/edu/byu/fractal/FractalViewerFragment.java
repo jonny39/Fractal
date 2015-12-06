@@ -71,10 +71,10 @@ public class FractalViewerFragment extends android.app.Fragment {
 
     private void drawLayer()
     {
-        Toast.makeText(getActivity(), "Layer " + String.valueOf(layers+1), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Layer " + String.valueOf(layers+1), Toast.LENGTH_SHORT).show();
 
         if (layers == 0) {
-            Point firstBase = new Point(getCenterX(),getCenterY());
+            Point firstBase = new Point(getCenterX()-30,getCenterY());
             int angle = 90;
             int sideLength1 = 450;
             Triangle triangle = new Triangle(getActivity(), firstBase, angle, sideLength1);
