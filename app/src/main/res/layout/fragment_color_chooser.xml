@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="edu.byu.fractal.ColorChooserFragment">
 
+
     <com.larswerkman.holocolorpicker.ColorPicker
         android:id="@+id/picker"
         android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/choose_button"
-        android:text="Choose Color"
+    android:text="Draw Fractal!"
         android:layout_gravity="center"
         android:layout_below="@+id/saturationbar"
         android:layout_centerHorizontal="true" />
