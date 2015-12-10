@@ -20,6 +20,14 @@
         android:layout_alignLeft="@+id/picker1"
         android:layout_alignStart="@+id/picker1" />
 
+    <!--<com.larswerkman.holocolorpicker.SVBar-->
+        <!--android:id="@+id/svbar"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@+id/picker1"-->
+        <!--android:layout_toEndOf="@+id/choose_button"-->
+        <!--android:layout_toRightOf="@+id/choose_button" />-->
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +43,8 @@
         android:text="Color 1"
         android:layout_marginTop="55dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"

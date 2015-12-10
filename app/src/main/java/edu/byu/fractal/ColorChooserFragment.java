@@ -92,7 +92,9 @@ public class ColorChooserFragment extends Fragment {
     public void setupPicker(View v)
     {
         mPicker1 = (ColorPicker) v.findViewById(R.id.picker1);
+        mPicker1.setShowOldCenterColor(false);
         mPicker2 = (ColorPicker) v.findViewById(R.id.picker2);
+        mPicker2.setShowOldCenterColor(false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
